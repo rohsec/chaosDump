@@ -70,7 +70,7 @@ if [ -z "$selected_prog" ]
 then
 printf "\n\n${yellow}[${bred}!${yellow}] No program selected !!${yellow}[${bred}!${yellow}]${reset}"
 else 
-prog_details=$(cat $dir_path/index.json |jq --arg prog $selected_prog -r '.[] | select(.name==$prog)')
+prog_details=$(cat $dir_path/index.json |jq --arg prog "$selected_prog" -r '.[] | select(.name==$prog)')
 prog_details_values=$(echo "${prog_details}"|sed 's/[}{",]//g'|awk '{print $2}');
 name=$(echo ${prog_details_values}|awk '{print $1}')
 program_url=$(echo ${prog_details_values}|awk '{print $2}')
