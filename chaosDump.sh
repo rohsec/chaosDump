@@ -58,7 +58,7 @@ printf "\n${yellow}[${bred}+${yellow}]${green} Select the program from the datab
 # sleep 1
 prog_list=$(cat $dir_path/index.json|jq '.[].name'|awk '{print $2}' FS=\")
 selected_prog=$(echo "$prog_list"|peco|xargs)
-prog_url=$(cat $dir_path/index.json |jq --arg prog $selected_prog -r '.[] | select(.name==$prog)|.URL')
+prog_url=$(cat $dir_path/index.json |jq --arg prog $"selected_prog" -r '.[] | select(.name==$prog)|.URL')
 printf "${yellow}[${bgreen}\xE2\x9C\x94${yellow}]${reset}"
 }
 
