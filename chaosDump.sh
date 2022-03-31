@@ -106,18 +106,18 @@ pause
 
 dumper(){
 create_prog_list
-if [ -z $selected_prog ]
+if [ -z "$selected_prog" ]
 then
 printf "\n\n${yellow}[${bred}!${yellow}] No program selected!!${yellow}[${bred}!${yellow}]${reset}"
 else
 printf "\n${yellow}[${bred}+${yellow}]${green} Dumping data for ${blue}$selected_prog...${reset}"
-wget -q $prog_url -O $selected_prog.zip
+wget -q $prog_url -O "$selected_prog".zip
 printf "${yellow}[${bgreen}\xE2\x9C\x94${yellow}]${reset}"
 printf "\n${yellow}[${bred}+${yellow}]${green} Extracting data...${reset}"
-unzip -q $selected_prog.zip -d $selected_prog
+unzip -q "$selected_prog".zip -d "$selected_prog"
 printf "${yellow}[${bgreen}\xE2\x9C\x94${yellow}]${reset}"
 printf "\n${yellow}[${bred}+${yellow}]${green} Dumped Data saved to folder ${blue}$1${reset}"
-rm $selected_prog.zip
+rm "$selected_prog".zip
 printf "${yellow}[${bgreen}\xE2\x9C\x94${yellow}]${reset}"
 fi
 printf "\n\n"
